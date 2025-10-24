@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F49D3627-BBB2-494E-A664-0EE49F6FA665}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{68AB2B4E-1AB7-47CF-AFEB-F73F018951B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameSorter.Console", "src\NameSorter.Console\NameSorter.Console.csproj", "{3CABB2D3-5D02-4A72-85CA-5192D30D49C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameSorter.Console.Unit.Tests", "tests\NameSorter.Console.Unit.Tests\NameSorter.Console.Unit.Tests.csproj", "{858EAB04-8CDC-47D1-B974-1F71BF80B8F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3CABB2D3-5D02-4A72-85CA-5192D30D49C9} = {F49D3627-BBB2-494E-A664-0EE49F6FA665}
+		{858EAB04-8CDC-47D1-B974-1F71BF80B8F1} = {68AB2B4E-1AB7-47CF-AFEB-F73F018951B8}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CABB2D3-5D02-4A72-85CA-5192D30D49C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CABB2D3-5D02-4A72-85CA-5192D30D49C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CABB2D3-5D02-4A72-85CA-5192D30D49C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CABB2D3-5D02-4A72-85CA-5192D30D49C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{858EAB04-8CDC-47D1-B974-1F71BF80B8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{858EAB04-8CDC-47D1-B974-1F71BF80B8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{858EAB04-8CDC-47D1-B974-1F71BF80B8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{858EAB04-8CDC-47D1-B974-1F71BF80B8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,45 @@
+on:
+  push:
+
+env:
+  DOTNET_VERSION: "9.0"
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{env.DOTNET_VERSION}}
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          # Look to see if there is a cache hit for the corresponding requirements file
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/Directory.Packages.props') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Lint
+        run: dotnet format --verify-no-changes --verbosity quiet --no-restore
+
+      - name: Test
+        run: |
+          dotnet test '--logger:console;verbosity=detailed' \
+          --verbosity minimal \
+          --no-restore \
+          --logger "trx;LogFileName=Functional.Tests.trx" \
+          --logger "GitHubActions;summary.includePassedTests=true;summary.includeSkippedTests=true;report-warnings=false" \
+          /p:CollectCoverage=true \
+          /p:CoverletOutputFormat=opencover \
+          /p:CoverletOutput=./coverage/coverage.opencover.xml \
+          /p:SkipAutoProps=true
